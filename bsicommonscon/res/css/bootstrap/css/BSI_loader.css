@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+#logo_BSI_wh,
+#logo_EF_wh,
+#logo_TF_wh,
+#logo_CF_wh,
+#ToBeSure_wh {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 69px;
+	margin: 0;
+	position: relative;
+	top: 0;
+	text-align: center;
+}
+
+
+#logo_BSI_wh {
+	background-image: url("../../../img/BSI_w.png");
+	/*left: -45px;*/
+	top: -30px;	
+}
+
+#logo_EF_wh {
+	/*background-image: url("/wp-content/themes/bsi_3.0../../../img/logo_eFormsFactory_w.png");*/
+	background-image: url("../../../img/logo_FPO_w.png");
+	/*left: -111px;*/
+}
+
+#logo_TF_wh {
+	background-image: url("../../../img/logo_TaxFactory_w.png");
+	/*left: -87px;*/
+}
+
+#logo_CF_wh {
+	background-image: url("../../../img/logo_ComplianceFactory_w.png");
+	/*left: -155px;*/
+}
+
+#ToBeSure_wh {
+	background-image: url("../../../img/ToBeSure_w.png");
+/*	width: 149px;*/
+	/*height: 58px;
+	left: -35px;*/
+	top: 30px;
+	background-size: 168px auto;
+}

@@ -1,0 +1,32 @@
+{
+    "appKey": "847e0653-31bf-4521-8e22-25756d70ee51",
+    "appName": "Garnishment",
+    "appDesc": "Garnishment Solutions Description",
+    "appBundleName": "garnishment_bundle.js",
+    "appVersion": "40281",
+    "appBuildNo":"2017_11_06_GS",
+    "appRenderFunction": "renderGarnishment", 
+    "appAreas": [{
+        "key":"50d31553-dd57-4f77-953c-564f65b4b54e",
+        "name":"JQxGrid/Reports",
+        "description": "JQxGrid React Demo",
+        "icon":"fa fa-wrench btn btn-circle-lg",    
+        "tooltip": "Generate Report",
+        "renderName": "report"
+    }, {
+        "key":"f0b46dca-ce59-49df-86a7-2513ce885bb4",
+        "name":"Employee List",
+        "description": "JQxGrid React Demo",
+        "icon": "custom_css_clasz_name",
+        "tooltip": "Generate Report",
+        "renderName": "employeelist"
+    }],
+    "appWidgets": [{
+        "key":"c61befb4-e084-4d59-9cb8-578ed8aa84af",
+        "name":"Yearly Graph Widget",
+        "description": "Yearly Graph Description",
+        "icon":"fa fa-wrench btn btn-circle-lg",    
+        "tooltip": "Yearly Graph By User",
+        "renderName": "yearlygraph"
+    }]
+}

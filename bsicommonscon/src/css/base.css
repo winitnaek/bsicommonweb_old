@@ -1,0 +1,435 @@
+@charset "utf-8";
+/* CSS Document */
+/* BSI colors
+==================================================
+
+003d6e - BSI blue 
+76bd22 - lime green
+3F97B5 - light blue
+a0cad9 - light blue / 50%
+f7b512 - yellow/orange
+595959 - gray dark / bk 75%
+bdbdbd - gray light / bk 25%
+dedede - gray super light / bk 15%
+*/
+
+
+/* Basics 
+================================================== */
+html, body {
+	width:100%;
+	height:100%;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+}
+
+html,body,div,span,fieldset,form,label,legend,table, td {
+	/*color:#595959;*/
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+	/*margin: 0 10px !important;*/
+}
+
+body {
+	font-size: 15px;
+	line-height:1.2em;
+	font-family: "effra", sans-serif;
+	color: #595959;
+	text-align: left;
+	-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+	-webkit-text-size-adjust: 100%;
+	width:100%;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+table td, table th { padding:10px; }
+th { font-weight:bolder; }
+
+/* #Typography
+================================================== */
+h1, h2, h3, h4, h5, h6 {
+	color: #3F97B5;
+	font-family: "lexia",serif !important;
+	font-style: normal;
+	font-weight: bold;
+	line-height: 1.2em;
+	text-align: left;
+	margin: 0.25em 0;
+	margin-bottom: .2em;
+	display:block;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	font-weight: inherit;
+	text-decoration: none;
+}
+h1 {
+	font-size: 2.125em;
+}
+h2 {
+	font-size: 1.6em;
+	color: #003d6e;
+}
+h3 {
+	font-size: 1.5em;
+	margin:10px 0;
+}
+h4 {
+	font-size: 1.3em;
+	color: #595959;
+	font-style:italic;
+	margin:10px 0;
+	line-height: 1.25em;
+}
+h5, h6 {
+	font-family:"effra",san-serif !important;
+	font-size: 1.125em;
+	font-weight: bold !important;
+	color: #595959;
+}
+h6 {
+	font-weight:normal !important;
+}
+p {
+	margin: 10px 0;
+	line-height: 1.25em;
+	margin-bottom:15px;
+}
+
+p img {
+	margin: 0;
+	border: 1px solid #003d6e;
+	
+	border-radius: 5px !important;
+	-webkit-border-radius: 5px !important;
+	-moz-border-radius: 5px !important;
+}
+em {
+	font-style: italic;
+}
+small, sup, .small {
+	font-size: .8em !important;
+}
+strong {
+	font-weight: bold;
+}
+
+/*	Blockquotes  */
+blockquote, q {
+	quotes: none;
+	margin: 0 0 20px;
+	padding: 9px 20px 0 19px;
+	border-left: 1px solid #bdbdbd	;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+blockquote, blockquote p {
+	font-size: 17px;
+	line-height: 24px;
+	color: #595959;
+	font-style: italic;
+}
+
+blockquote cite {
+	display: block;
+	font-size: 12px;
+	color: #76bd22;
+}
+blockquote cite:before {
+	content: "\2014 \0020";
+}
+blockquote cite:after {
+	/*content: "121212";*/
+}
+hr {
+	border: solid #76bd22;
+	border-width: 2px 0 0;
+	clear: both;
+	margin: 20px 0;
+	height: 0;
+}
+
+/* #Links
+================================================== */
+a {
+	cursor: pointer;
+	text-decoration: underline;
+	outline: 0;
+	color: #003d6e;
+}
+a:visited {}
+a:hover {
+	color: #76bd22;
+}
+
+/* #Lists
+================================================== */
+
+ul li, ol li {
+	line-height: inherit;
+	margin-left: .125em;
+	padding: 0.375em 0;
+	list-style-position: outside;
+}
+ul, ol {
+	margin: 10px 0;
+}
+ul {
+	/*list-style: disc outside;*/
+}
+ol {
+	/*list-style: decimal;*/
+}
+ol, ul.square, ul.circle, ul.disc {
+	margin-left: 30px;
+}
+ul.square {
+	list-style: square outside;
+}
+ul.circle {
+	list-style: circle outside;
+}
+ul.disc {
+	list-style: disc outside;
+}
+ul ul, ul ol, ol ol, ol ul { /*level 2*/
+	/*margin: 5px 0 0 20px;*/
+	margin: 0 15px;
+}
+ul ul li {
+	line-height: 1.125em;
+}
+li p {
+	line-height: 21px;
+}
+
+/* #Buttons
+================================================== */
+
+.btn,
+body .btn,
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.wp-pagenavi a,
+.wp-pagenavi .current,
+.wp-pagenavi .nextpostslink,
+.wp-pagenavi .previouspostslink,
+.wp-pagenavi .page {
+	color: #FFFFFF !important;
+	display: inline-block !important;
+	font-size: .9em !important;
+	letter-spacing: 0.05em;
+	cursor: pointer !important;
+	line-height: 1.1em !important;
+	font-weight:bold !important;
+	text-shadow: 0 1px 1px #3F97B5;
+	  
+	background-color:#76bd22;
+	
+	text-decoration:none !important;
+	padding:5px 10px !important;
+	margin: 10px 5px 0 0 !important;
+	
+	border:1px solid #3F97B5 !important;
+	border-radius: 5px !important;
+	-webkit-border-radius: 5px !important;
+	-moz-border-radius: 5px !important;
+	background-image:none !important;
+	
+}
+
+.btn:hover, body .btn:hover, .button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover,
+.wp-pagenavi .current:hover,
+.wp-pagenavi .nextpostslink:hover,
+.wp-pagenavi .previouspostslink:hover,
+.wp-pagenavi .page:hover {
+	color: #FFFFFF !important;
+	background-color:#3F97B5 !important;
+	background-image:none !important;
+	border:1px solid #76bd22 !important;
+	text-shadow: 0 1px 1px #76bd22;
+}
+
+.btn:active, .button:active, button:active, input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active,
+.wp-pagenavi .current {
+	background: #bdbdbd; /* Old browsers */
+}
+
+.btn.full-width, .button.full-width, button.full-width, input[type="submit"].full-width, input[type="reset"].full-width, input[type="button"].full-width {
+	width: 100%;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	text-align: center;
+}
+
+/* Fix for odd Mozilla border & padding issues */
+button::-moz-focus-inner, input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+/* #Forms
+================================================== */
+
+form { }
+
+fieldset {
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="phone"],
+input[type="tel"],
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+textarea {
+	text-decoration:none !important;
+	padding:2px 5px !important;
+	margin:5px 0 !important;
+	min-width: 45%;
+	max-width:95%;
+	
+	border:2px solid #bdbdbd	 !important;
+	border-radius: 5px !important;
+	-webkit-border-radius: 5px !important;
+	-moz-border-radius: 5px !important;
+	background-image:none !important;
+}
+
+select {
+	text-decoration:none !important;
+	padding:2px 5px !important;
+	margin:5px 0 !important;
+	min-width: 45%;
+	max-width:95%;
+	position:relative;
+	z-index:1;
+	
+	border:2px solid #bdbdbd	 !important;
+	
+	-webkit-border-top-left-radius: 5px !important;
+	-webkit-border-bottom-left-radius: 5px !important;
+	-moz-border-radius-topleft: 5px !important;
+	-moz-border-radius-bottomleft: 5px !important;
+	border-top-left-radius: 5px !important;
+	border-bottom-left-radius: 5px !important;
+}
+
+option {
+	position:relative !important;
+	z-index:1 !important;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
+	color: #595959	;
+	border: 1px solid #bdbdbd;
+}
+
+input[type="checkbox"] {
+	display: inline;
+}
+
+label, legend {
+	/*display: block;
+	font-weight: bold;
+	font-size: 1em;*/
+	font-family: lexia;
+	font-weight: bold;
+	margin-bottom: 0 !important;
+	margin-top: 5px !important;
+}
+
+label span, legend span {
+	font-weight: normal;
+	font-size: 1em;
+	color: #595959;
+}
+
+textarea {
+	min-height: 60px;
+}
+
+/* #Other
+================================================== */
+
+.alert { color:#f7b512 !important; }
+
+.callout {
+	font-size:1.3em;
+	font-style:italic;
+	color: #003d6e;
+	border-top: 2px solid #F7B512;
+	border-bottom: 2px solid #F7B512;
+	padding:20px;
+	padding-bottom:10px;
+	margin-bottom:20px;
+	line-height:1.125em;
+	background-image: url("../images/alpha_wh_50.png");
+	
+	-webkit-border-radius: 5px !important;
+	-moz-border-radius: 5px !important;
+	border-radius: 5px !important;
+	
+	-webkit-box-shadow: 5px 5px 5px 0px rgba(0,55,99,0.75);
+	-moz-box-shadow: 5px 5px 5px 0px rgba(0,55,99,0.75);
+	box-shadow: 5px 5px 5px 0px rgba(0,55,99,0.75);
+	
+}
+
+.callout p { 
+	margin-bottom: 10px;
+}
+
+.clearFix { clear: both; }
+
+.date, date, time { color:#f7b512; font-weight:bold; font-size:.8em; font-style:italic;}
+
+.hidden { display:none; }
+
+.left { float:left; margin-right:10px; }
+
+.right { float:right; }
+
+.noBkgnd,
+.noBkgnd:hover {
+	background-image: none !important;
+}
+
+@media print {
+	
+	
+	.keyBenefits .title,
+	h1, h2, h3, h4, h5, h6 {
+		font-family: Georgia, Palatino, Times New Roman, serif;
+	}
+	
+	.banner_slide, 
+	.banner_slide_home,
+	.frame_solutions,
+	.slider_area,
+	.metaslider,
+	#parallax_dot_a,
+	#parallax_dot_b,
+	#parallax_0,
+	#parallax_1,
+	#parallax_2,
+	#parallax_3,
+	.header_top { display:none; }
+}
+

@@ -1,0 +1,133 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "title": "BSICommonUI",
+    "description": "BSI Common UI container for Web Applications.",
+    "type": "object",
+    "id": "http://jsonschema.net",
+    "properties": {
+        "appKey": {
+            "type": "string",
+            "id": "http://jsonschema.net/appKey",
+            "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[34][0-9a-fA-F]{3}-[89ab][0-9a-fA-F]{3}-[0-9a-fA-F]{12}"
+        },
+        "appName": {
+            "type": "string",
+            "id": "http://jsonschema.net/appName",
+            "pattern": "^[a-zA-Z]{4,50}$"
+        },
+        "appDesc": {
+            "type": "string",
+            "id": "http://jsonschema.net/appDesc",
+            "minLength": 10,
+            "maxLength": 100
+        },
+        "appBundleName": {
+            "type": "string",
+            "id": "http://jsonschema.net/appBundleName",
+            "pattern": "(^([a-zA-Z0-9]{3,50})_bundle\\.js$){1,1}"
+        },
+        "appRenderFunction": {
+            "type": "string",
+            "id": "http://jsonschema.net/appRenderFunction",
+            "pattern": "^render[a-zA-Z0-9]{4,50}$"
+        },
+        "appAreas": {
+            "type": "array",
+            "minItems": 1,
+            "id": "http://jsonschema.net/appAreas",
+            "items": [{
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "id": "http://jsonschema.net/appAreas/key",
+                        "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[34][0-9a-fA-F]{3}-[89ab][0-9a-fA-F]{3}-[0-9a-fA-F]{12}"
+                    },
+                    "name": {
+                        "type": "string",
+                        "id": "http://jsonschema.net/appAreas/name",
+                        "minLength": 5,
+                        "maxLength": 20
+                    },
+                    "description": {
+                        "type": "string",
+                        "id": "http://jsonschema.net/appAreas/description",
+                        "minLength": 10,
+                        "maxLength": 100
+                    },
+                    "icon": {
+                        "type": "string",
+                        "id": "http://jsonschema.net/appAreas/icon",
+                        "minLength": 5,
+                        "maxLength": 50
+                    },
+                    "tooltip": {
+                        "type": "string",
+                        "id": "http://jsonschema.net/appAreas/tooltip",
+                        "minLength": 5,
+                        "maxLength": 50
+                    },
+                    "renderName": {
+                        "type": "string",
+                        "id": "http://jsonschema.net/appAreas/renderName",
+                        "pattern": "^[a-zA-Z0-9]{5,50}$"
+                    }
+                },
+                "required": [
+                    "key",
+                    "name",
+                    "icon",
+                    "tooltip",
+                    "renderName"
+                ]
+            }]
+        },
+        "appWidgets": {
+            "type": "array",
+            "minItems": 1,
+            "id": "http://jsonschema.net/appWidgets",
+            "items": [{
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "id": "http://jsonschema.net/appWidgets/key",
+                        "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[34][0-9a-fA-F]{3}-[89ab][0-9a-fA-F]{3}-[0-9a-fA-F]{12}"
+                    },
+                    "name": {
+                        "type": "string",
+                        "id": "http://jsonschema.net/appWidgets/name",
+                        "minLength": 5,
+                        "maxLength": 20
+                    }
+                },
+                "required": [
+                    "key",
+                    "name"
+                ]
+            }]
+        },
+        "appVersion": {
+            "type": "string",
+            "id": "http://jsonschema.net/appVersion",
+            "pattern": "^(\\d+\\.)?(\\d+\\.)?(\\*|\\d+)$"
+        },
+        "appBuildNo": {
+            "type": "string",
+            "id": "http://jsonschema.net/appBuildNo",
+            "minLength": 5,
+            "maxLength": 20
+        }
+    },
+    "required": [
+        "appKey",
+        "appName",
+        "appAreas",
+        "appWidgets",
+        "appBundleName",
+        "appVersion",
+        "appBuildNo",
+        "appRenderFunction"
+    ],
+    "additionalProperties": false
+}

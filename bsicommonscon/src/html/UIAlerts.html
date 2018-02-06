@@ -1,0 +1,23 @@
+<script type="text/javascript">
+$('#mod_alerts').modal({backdrop: 'static'});
+
+$('#mod_alerts').on('shown.bs.modal', function (e) {
+    var  alert = "<span class=\"glyphicon glyphicon-alert blinkThis\" title=\"Alerts\" style=\"font-size: 2em; padding: 10px; color:#ffb81d;\"></span>";
+    $('#alrt-modal-title').text('Attention Required');
+    $('#alrt-modal-title').prepend(alert);
+    $('#alrt-modal-body').text('');
+    for(var i=1;i<5;i++){
+        var alertTxt = "<strong>Warning!</strong> : "+i; 
+        var alertDiv = "<div class=\"alert alert-warning fade in\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>"+alertTxt+"</div>";
+        $('#alrt-modal-body').append(alertDiv);
+    }   
+});
+</script>
+<div class="modal-header">
+<h4 class="modal-title" id="alrt-modal-title"></h4>
+</div>
+<div class="modal-body" id="alrt-modal-body">
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>

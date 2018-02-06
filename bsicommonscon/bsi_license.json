@@ -1,0 +1,18 @@
+[
+  {
+    "license": {
+      "product_id": 100,
+      "product_name": "garnishment",
+      "product_key": "GARNISHMENT-7C9E-BC3E-J2MA",
+      "product_features":[ "gs_reports", "gs_email","gs_maintenance"] 
+    }
+  },
+  {
+    "license": {
+      "product_id": "101",
+      "product_name": "yeti",
+      "product_key": "YETI-7C9E-BC3E-J2MA",
+      "product_features":[ "yt_payroll_data", "yt_filing", "yt_payment" ] 
+    }
+  }
+]

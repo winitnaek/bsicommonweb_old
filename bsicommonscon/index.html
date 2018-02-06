@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xmlns="//www.w3.org/1999/xhtml">
+
+    <head>
+
+        <meta charset="utf-8">			
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+        <meta name="robots" content="noindex, nofollow"/>	
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>BSI Products Suite</title>
+
+        <!-- jQuery START -->
+        <link rel="stylesheet" href="src/css/jquery-ui.css">
+        <script type="text/javascript" src="res/js/jquery.js"></script>
+        <script type="text/javascript" src="res/js/jquery-ui.min.js"></script>
+        <!-- jQuery END -->
+
+        <!-- BSI_loader START -->
+        <script type="text/javascript" src="res/css/bootstrap/js/BSI_loader.js"></script>
+        <link rel="stylesheet" href="res/css/bootstrap/css/BSI_loader.css">
+        <!-- BSI_loader END -->		
+
+        <!-- bootstrap START -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="res/css/bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" class="theSheet" href="res/css/bootstrap/css/bsi-theme.css" />
+        <link rel="stylesheet" href="res/css/bootstrap/css/bsi-ui.css" />
+        <script type="text/javascript" src="res/css/bootstrap/js/bootstrap.min.js"></script>
+        <!-- bootstrap END -->
+
+        <!-- font-awesome START -->
+        <link rel="stylesheet" href="res/css/font-awesome/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="./res/js/jqwidgets/styles/jqx.base.css" type="text/css" />
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxcore.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxdatetimeinput.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxtextarea.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxcalendar.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxtooltip.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxdata.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxbuttons.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxscrollbar.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxmenu.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxcheckbox.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxlistbox.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxdropdownlist.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxgrid.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxgrid.sort.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxgrid.pager.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxgrid.selection.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxgrid.edit.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxtabs.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxwindow.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/jqxDataTable.js"></script>
+        <script type="text/javascript" src="./res/js/jqwidgets/globalization/globalize.js"></script>
+        <link rel="stylesheet" href="./res/js/jqwidgets/styles/jqx.bsi.css" type="text/css"/>
+        
+        <!-- font-awesome END -->
+        <script src="./src/js/commonui.js"></script>
+        <style>
+        .ap_branding {
+            background-image: url("./res/img/logo_FPO_c.png");
+        }
+        .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+
+        .ui-sortable-handle {
+            cursor: grab !important;
+        }
+
+        .ui-sortable-helper {
+            cursor: grabbing !important;
+        }
+        </style>
+    </head>
+    <body>
+        
+<script>
+    var proudct_license =null;
+    proudct_licenses = null;
+    $( function() {
+        proudct_licenses = getProudctLicenses();
+    });
+    function getProudctLicenses(){
+        $.getJSON( "./bsi_license.json", function( products ) {
+            proudct_licenses = products;
+            loadLaunchPad();
+            return proudct_licenses;
+        });
+    }
+    function loadLaunchPad(){
+        if(!$('#launchPadWindow').is(":visible")){ 
+            $.get("./src/html/LaunchPad.html", function(data) {
+                $("#theGrid").html(data);
+                $.each( proudct_licenses, function( key, product ) {
+                    if(product.license.product_name==='garnishment'){
+                        ($.inArray( "gs_reports" , product.license.product_features ) > -1) ? $("#gs_reports").show() : $("#gs_reports").hide();
+                        ($.inArray( "gs_email" , product.license.product_features ) > -1)  ? $("#gs_email").show() : $("#gs_email").hide();
+                        ($.inArray( "gs_maintenance" , product.license.product_features ) > -1) ? $("#gs_maintenance").show() : $("#gs_maintenance").hide();
+                    }else if(product.license.product_name==='yeti'){
+                        ($.inArray( "yt_payroll_data" , product.license.product_features ) > -1) ? $("#yt_payroll_data").show() : $("#yt_payroll_data").hide();
+                        ($.inArray( "yt_filing" , product.license.product_features ) > -1)  ? $("#yt_filing").show() : $("#yt_filing").hide();
+                        ($.inArray( "yt_payment" , product.license.product_features ) > -1) ? $("#yt_payment").show() : $("#yt_payment").hide();
+                    }
+                    launchPad.show('');
+                });
+            });        
+        }
+    }
+    function loadWelcomePg(){
+        $.get("./src/html/WelcomePg.html", function(data) {
+            $("#theGrid").html(data);
+        });
+    }
+</script>
+        <!-- pageLoader START -->
+        <div id="pageloader" style="text-align: center;"></div>
+        <script type="text/javascript">$("#pageloader").pageLoader({spinner: "spinnerEF"});</script> 
+        <!-- pageLoader END -->
+
+        <!-- Fixed navbar START -->
+        <nav  id="navid" class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed openNav_left" data-toggle="collapse"> <span class="sr-only">Toggle navigation</span> <span class="fa fa-navicon"></span> </button>
+                <span class="navbar-brand ap_branding"></span>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <div class="navbar-right-top">			
+
+                    <ul class="nav navbar-nav navbar-right hide-sm">
+                        <li class="alertArea" style="height: 50px;">
+                                <div class="col-md-3 col-sm-4">
+                                    <a href="#" onclick="javascript:getUIAlerts();" class="noGo mod_alerts" data-toggle="modal" data-target="#mod_alerts">
+                                        <span class="glyphicon glyphicon-alert blinkThis" title="Alerts" style="font-size: 2em; padding: 10px; color:#ffb81d;"></span></a>
+                                </div>
+                        </li>
+
+                        <li class="messageArea" style="height: 50px;">
+                            <div class="col-md-3 col-sm-4">
+                                <a href="#" onclick="javascript:getUIMessages();"  class="noGo mod_messages" data-toggle="modal" title="Messages" data-target="#mod_messages">
+                                    <span class="fa fa-bell-o" data-toggle="tooltip" title="Messages" style="font-size: 2em; padding: 10px; color:#ffb81d;"></span>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li style="height: 50px;"><a href="#" class="noGo" alt="Selected Company" style="padding: 15px;"> <span class="fa fa-database" style="margin-right:10px;"></span> <strong>Dataset</strong> <span>DS307645133</span></a> </li>
+                        <li class="dropdown"><a class="dropdown-toggle noGo" data-toggle="dropdown" href="#" style="height: 50px; padding: 15px;">Logged in as "Joe" <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" class="noGo"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
+                                <li><a href="#" class="noGo"><span class="glyphicon glyphicon-question-sign"></span> Online Help</a></li>
+                                <li><a href="#" class="noGo"><span class="fa fa-support"></span> Contact Support</a></li>
+                                <li><a href="#" class="noGo"> Legal Notices</a></li>
+                                <li><a href="#" class="noGo"> www.BSI.com</a></li>
+                                <li><a href="#" class="noGo"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
+                                <li>
+                                    <table style="background-color: transparent; font-size: .85em; margin: 10px;">
+                                        <tr>
+                                            <td><strong>Product</strong></td>
+                                            <td>4.0.r.x</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Bulletin</strong></td>
+                                            <td>160</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Updated</strong></td>
+                                            <td>6/1/2016 8:39 AM</td>
+                                        </tr>
+                                    </table>									 
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- nav_too links START -->
+            <div class="nav_too " style="">
+                <span class="col-md-2 col-sm-2 col-xs-2 hide-sm openNav_left" style=""><a href="#" onclick="loadLaunchPad();" class="noGo"><span class="fa fa-navicon"></span><span class="hide-sm"> Launch Pad</span></a></span> 
+
+                <span class="col-md-3 col-sm-5 col-xs-5" style="padding-right: 0;">					
+                    <input type="text" class="search_top" alt="" placeholder="Search Term" />
+                    <a id="searchIcon" href="#" class="noGo"><span class="glyphicon glyphicon-search"></span></a>
+                </span>
+
+                <span class="col-md-2 col-sm-3 col-xs-3 pull-right">
+                    <a href="#" onclick="javascript:getCustomizeUIPg();" class="noGo mod_custPage right" data-toggle="modal" data-target="#mod_custPage"><span class="fa fa-gear" style="font-size: 1.25em;"></span><span class="hide-sm"> Customize </span></a>
+                </span>
+            </div>
+            <!-- nav_too links END --> 
+
+        </nav>
+        <!-- Fixed navbar END -->
+
+
+        <!-- content area START -->
+        <div id="theGrid" class="sortable" style="margin-top: 100px;">	
+           
+        </div>
+        <!-- content area END -->
+        <div class="ui-state-highlight" style="margin-top: 200px; position: fixed;"></div>
+        <!-- footer START navbar-fixed-bottom -->
+        <div class="footer">
+            <p class="muted credit" style="text-align:center;"> &copy;Copyright 2008 - 2017 Business Software, Inc. Unpublished - Rights Reserved Under the Copyright Laws of the United States <a href="http://www.bsi.com/bsi-resources/privacy-policy" target="_blank">|&nbsp;Privacy&nbsp;Policy</a> </p>
+        </div>
+        <!-- footer END -->
+    <!-- Modal alert START -->
+    <div id="mod_alerts" class="modal fade" role="dialog">
+        <div class="modal-dialog"> 
+        <!-- Modal content-->
+        <div class="modal-content" id="modal-content_alt_id">
+        </div>
+    </div>
+    </div>
+    <!-- Modal alert END -->         
+    <!-- mod_messages START -->
+    <div id="mod_messages" class="modal fade" role="dialog">
+        <div class="modal-dialog"> 
+        <div class="modal-content" id="modal-content_msg_id">
+        </div>
+        </div>
+    </div>
+    <!-- mod_messages END -->
+    <!-- Modal cust Dashboard START -->
+    <div id="mod_custPage" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg"> 
+            <div class="modal-content" id="customizepg-content_id"></div>
+        </div>    
+    </div>
+    <!-- Modal cust Dashboard ENDS -->    
+    <script type="text/javascript" src="apps/garnishment/garnishment_bundle.js"></script>
+    <script type="text/javascript" src="apps/yeti/yeti_bundle.js"></script>
+    <script type="text/javascript">
+    function loadspa(spa) {
+
+        unMountNMountContainerNode();
+        if(spa=='spa1'){
+            renderApplication('theGrid','employeegrid');
+        }else if(spa=='spa2'){
+            renderApplication('theGrid','about');
+        }else if(spa=='spa3'){
+            renderApplication('theGrid','reports');
+        }else if(spa=='spa4'){
+            renderYeti('theGrid','yetihome');
+        }else if(spa=='spa5'){
+            renderYeti('theGrid','yetifiling');
+        }else if(spa=='spa6'){
+            renderYeti('theGrid','yetipayment');
+        }else{
+            renderWelcomePage('theGrid');
+        }
+        closeLaunchPad();
+    }
+    function unMountNMountContainerNode(){
+        $("div").remove("#theGrid");
+        $("<div id=\"theGrid\" class=\"sortable\" style=\"margin-top: 100px;\"></div>").insertAfter( $("#navid"));
+    }
+    function closeLaunchPad(){
+        $('#launchPadWindow').jqxWindow('close');
+    }
+    function renderWelcomePage(elem){
+        document.getElementById(elem).innerHTML="<h3>Welcome to the BSI Common UI Administration&nbsp;Console.</h3><h4>You can customize your Dashboard by using the Customize&nbsp;Page feature in the navigation above.</h4>";
+    }
+    </script>
+    <script type="text/javascript" src="res/css/bootstrap/js/BSI_scripts.js"></script>
+</body>
+</html>

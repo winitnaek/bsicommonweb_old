@@ -1,0 +1,184 @@
+<script type="text/javascript">
+$('#mod_custPage').modal({backdrop: 'static'});
+$('#mod_custPage').on('shown.bs.modal', function (e) {
+    $.each( proudct_licenses, function( key, product ) {
+        if(product.license.product_name==='garnishment'){
+            ($.inArray( "gs_reports" , product.license.product_features ) > -1) ? callme1("#id_gs_reports","#id_gs_reports_info"): callme2("#id_gs_reports","#id_gs_reports_info");
+            ($.inArray( "gs_email" , product.license.product_features ) > -1)  ? callme1("#id_gs_email","#id_gs_email_info") : callme2("#id_gs_email","#id_gs_email_info");
+            ($.inArray( "gs_maintenance" , product.license.product_features ) > -1) ? callme1("#id_gs_maintenance","#id_gs_maintenance_info") :callme2("#id_gs_maintenance","#id_gs_maintenance_info");
+        }else if(product.license.product_name==='yeti'){
+            ($.inArray( "yt_payroll_data" , product.license.product_features ) > -1) ? callme1("#id_yt_payroll_data","#id_yt_payroll_data_info") :callme2("#id_yt_payroll_data","#id_yt_payroll_data_info");
+            ($.inArray( "yt_filing" , product.license.product_features ) > -1)  ? callme1("#id_yt_filing","#id_yt_filing_info") : callme2("#id_yt_filing","#id_yt_filing_info");
+            ($.inArray( "yt_payment" , product.license.product_features ) > -1) ? callme1("#id_yt_payment","#id_yt_payment_info"): callme2("#id_yt_payment","#id_yt_payment_info");
+        }
+    });
+    function callme1(idd1,idd2){
+        $(idd1).show(); 
+        eyeOpen(idd2);
+    }
+    function callme2(idd1,idd2){
+        $(idd1).hide(); 
+        eyeShut(idd2);
+    }
+    eyeToggle('#id_launchPad_tab_info');
+});
+function launchPadClick(idd1,idd2){
+    eyeShutNOpen(idd2);
+}
+function eyeOpen(idd2){
+        $(idd2).removeClass('fa-eye-slash');
+        $(idd2).addClass('fa-eye');
+    }
+function eyeShut(idd2){
+    $(idd2).removeClass('fa-eye');
+    $(idd2).addClass('fa-eye-slash');
+}
+function eyeToggle(idd2){
+    if($(idd2).hasClass( "fa-eye" )){
+        eyeShut(idd2);
+    }else if($(idd2).hasClass( "fa-eye-slash")){
+        eyeOpen(idd2);
+    }
+}
+function eyeShutNOpen(idd2){
+    if($(idd2).hasClass( "fa-eye" )){
+        eyeShut(idd2);
+        launchPad.hide('');
+    }else if($(idd2).hasClass( "fa-eye-slash" )){
+        eyeOpen(idd2);
+        launchPad.show('');
+    }
+}
+function tglLaunchItem(idd,idd2){
+    launchPad.toggleItem(idd);
+    eyeToggle(idd2);
+}
+function loadQuickApprovalReport(idd1,idd2){
+     if($(idd2).hasClass( "fa-eye-slash" )){
+        $.get("./src/html/QuickApprovalReport.html", function(data) {
+           $("#theGrid").append(data);
+           eyeToggle(idd2);
+        });
+    }else if($(idd2).hasClass( "fa-eye" )){
+        quickApprovalReport.hide('');
+        eyeToggle(idd2);
+    }
+}
+</script>
+<!-- Modal content-->
+<div class="modal-header">
+        <h4 class="modal-title">Customize your Dashboard</h4>
+</div>
+<div class="modal-body">
+        <p>Toggle the resources* that want to see on this page. You can sort your selections on the page once they are open.</p>
+
+                <!-- onboarding START -->
+                <div class="cDash col-sm-4">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                                <p class="panel-title">Onboarding Quick&nbsp;Views</p>
+                        </div>
+                        <div class="list-group">
+                            <a id="id_quick_apr_rept" class="btn_showQA list-group-item noGo" href="#boxQA" for="boxQA" onclick="loadQuickApprovalReport('#id_quick_apr_rept','#id_quick_apr_rept_info');"><i id="id_quick_apr_rept_info" class="fa fa-eye-slash" aria-hidden="true"></i> Quick Approval Report <span class="badge badge-default badge-pill">14</span></a>
+                                <a class="btn_show_1c togItem list-group-item noGo" href="#1c" for="1c"><i class="fa fa-eye-slash" aria-hidden="true"></i> Worksites <span class="badge badge-default badge-pill">2</span></a>
+                                <a class="btn_showLogs list-group-item noGo" href="#boxLogs" for="boxLogs"><i class="fa fa-eye-slash" aria-hidden="true"></i> Event Logs</a>
+                                <a class="btn_showProfile togItem list-group-item noGo" href="#boxProfile" for="boxProfile"><i class="fa fa-eye-slash" aria-hidden="true"></i> Company Profile</a>
+                        </div>						
+                        </div></div>
+                <!-- onboarding END -->
+
+                <!-- calculation START -->
+                <div class="cDash col-sm-4">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                                <p class="panel-title">Calculation Quick&nbsp;Views</p>
+                        </div>
+                        <div class="list-group">
+                                <a class="btn_show_2b togItem list-group-item noGo" href="#2b" for="2b"><i class="fa fa-eye-slash" aria-hidden="true"></i> Taxability Report</a>
+                                <a class="btn_show_2c togItem list-group-item noGo" href="#2c" for="2c"><i class="fa fa-eye-slash" aria-hidden="true"></i> Tax History Report</a>
+                                <a class="btn_show_2d togItem list-group-item noGo" href="#2d" for="2d"><i class="fa fa-eye-slash" aria-hidden="true"></i> Rate Overrides</a>
+                                <a class="btn_show_2e togItem list-group-item noGo" href="#2e" for="2e"><i class="fa fa-eye-slash" aria-hidden="true"></i> What-if Testing</a>
+                        </div>						
+                        </div></div>
+                <!-- calculation END -->
+
+                <!-- compliance START -->
+                <div class="cDash col-sm-4">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                                <p class="panel-title">Compliance Quick&nbsp;Views</p>
+                        </div>
+                        <div class="list-group">
+                                <a class="btn_show_3c togItem list-group-item noGo" href="#3c" for="3c"><i class="fa fa-eye-slash" aria-hidden="true"></i> Filing</a>
+                                <a class="btn_show_3d togItem list-group-item noGo" href="#3d" for="3d"><i class="fa fa-eye-slash" aria-hidden="true"></i> Payment</a>
+                                <a class="btn_show_3e togItem list-group-item noGo" href="#3e" for="3e"><i class="fa fa-eye-slash" aria-hidden="true"></i> Amended Reports</a>
+                                <a class="btn_show_3f togItem list-group-item noGo" href="#3f" for="3f"><i class="fa fa-eye-slash" aria-hidden="true"></i> Non-Periodic</a>
+                                <a class="btn_show_3g togItem list-group-item noGo" href="#3g" for="3g"><i class="fa fa-eye-slash" aria-hidden="true"></i> Year End</a>
+                        </div>						
+                        </div></div>
+                <!-- compliance END -->
+
+                <hr />
+
+                <!-- Launch START -->
+                <div class="cDash col-sm-8">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a id="id_launchPad_tab" class="panel-title btn_showTools togItem noGo" href="#" onclick="launchPadClick(this,'#id_launchPad_tab_info');" for="boxTools"><i id="id_launchPad_tab_info" class="fa fa-eye-slash" aria-hidden="true"></i> Launch Pad</a>
+                        </div>
+
+                        <div class="list-group col-sm-6" style="padding: 0;">
+                                <p class="list-group-item"><strong>Garnishments Module</strong></p>
+                                <a id="id_gs_reports" class="btn_showNav togItem list-group-item noGo" href="#" for="navItem_tools" onclick="tglLaunchItem('#gs_reports','#id_gs_reports_info');"><i id="id_gs_reports_info" class="fa fa-eye-slash" aria-hidden="true"></i> Garnishments</a>
+                                <a id="id_gs_maintenance" class="btn_showNav togItem list-group-item noGo" href="#" for="navItem_process" onclick="tglLaunchItem('#gs_maintenance','#id_gs_email_info');"><i id="id_gs_email_info" class="fa fa-eye-slash" aria-hidden="true"></i> Employee List </a>
+                                <a id="id_gs_email" class="btn_showNav togItem list-group-item noGo" href="#" for="navItem_config" onclick="tglLaunchItem('#gs_email','#id_gs_maintenance_info');"><i  id="id_gs_maintenance_info"  class="fa fa-eye-slash" aria-hidden="true"></i> Add Employee </a>
+                                <p class="divider" style="margin-top: -1px;"></p>
+
+<!--							<p class="list-group-item"><strong>Calculation</strong></p>
+                                <a class="btn_showNav togItem list-group-item noGo" href="#" for="navItem_1"><i class="fa fa-eye-slash" aria-hidden="true"></i> Reporting</a>
+                                <a class="btn_showNav togItem list-group-item noGo" href="#" for="navItem_2"><i class="fa fa-eye-slash" aria-hidden="true"></i> Tax Management</a>
+                                <a class="btn_showNav togItem list-group-item noGo" href="#" for="navItem_3"><i class="fa fa-eye-slash" aria-hidden="true"></i> What-if Testing</a>
+                                <p class="divider" style="margin-top: -1px;"></p>							-->
+                        </div>
+
+                        <div class="list-group col-sm-6" style="padding: 0;">							
+                                <p class="list-group-item"><strong>Yeti</strong></p>
+                                <a id="id_yt_payroll_data" class="btn_showNav togItem list-group-item noGo" href="#" for="navItem_4" onclick="tglLaunchItem('#yt_payroll_data','#id_yt_payroll_data_info');"><i id="id_yt_payroll_data_info" class="fa fa-eye-slash" aria-hidden="true"></i> Payroll Data</a>							
+                                <a id="id_yt_filing" class="btn_showNav togItem list-group-item noGo" href="#" for="navItem_5" onclick="tglLaunchItem('#yt_filing','#id_yt_filing_info');"><i id="id_yt_filing_info" class="fa fa-eye-slash" aria-hidden="true"></i> Filing</a>
+                                <a id="id_yt_payment"class="btn_showNav togItem list-group-item noGo" href="#" for="navItem_6" onclick="tglLaunchItem('#yt_payment','#id_yt_payment_info');"><i id="id_yt_payment_info" class="fa fa-eye-slash" aria-hidden="true"></i> Payment</a>
+<!--							<a class="btn_showNav togItem list-group-item noGo" href="#" for="navItem_7"><i class="fa fa-eye-slash" aria-hidden="true"></i> Amended Reports</a>
+                                <a class="btn_showNav togItem list-group-item noGo" href="#" for="navItem_8"><i class="fa fa-eye-slash" aria-hidden="true"></i> Non-Periodic</a>
+                                <a class="btn_showNav togItem list-group-item noGo" href="#" for="navItem_9"><i class="fa fa-eye-slash" aria-hidden="true"></i> Year End</a>-->
+                        </div>
+
+                                        <div class="clearFix"></div>		
+                        </div>
+
+                        </div>						
+                        <!-- Launch END -->
+
+                        <!-- theme select START -->
+                <div class="cDash col-sm-4">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                                <p class="panel-title">Theme Selection</p>
+                        </div>
+                        <div class="list-group">
+                            <a id="btn_th_default" onclick="setTheme(this,'bsi-theme');" class="btn_th active list-group-item noGo">Default</a>
+
+                                <a id="btn_th_dark"  onclick="setTheme(this,'bootstrapdark');" class="btn_th list-group-item noGo">High Contrast</a>
+                                <a id="btn_th_bow"  onclick="setTheme(this,'bootstrapbow');" class="btn_th list-group-item noGo">Black on White</a>
+                                <a id="btn_th_wob"  onclick="setTheme(this,'bootstrapwob');" class="btn_th list-group-item noGo">White on Black</a>
+                                <a id="btn_th_default2"  onclick="setTheme(this,'bsi-theme2');" class="btn_th list-group-item noGo">Joe's Tire Theme</a>
+                        </div>						
+                        </div></div>					
+                <!-- theme select END -->
+
+
+
+        <div class="clearFix"></div>
+</div>
+<div class="modal-footer">
+        <span class="small left"><em>* item availability is based on administrative permissions and user rolls</em></span>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>

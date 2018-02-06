@@ -1,0 +1,65 @@
+[{
+    "appKey": "130217c8-dfb4-436c-b126-539c9dc24977",
+    "appName": "Garnishment",
+    "appAreas": [{
+            "key": "bfb71f23-222a-4ddc-b434-b6a97b83a2de",
+            "name": "Reports",
+            "mode": {
+                "visible": true
+            },
+            "items": [{
+                "name": "report",
+                "permissions": {
+                    "view": true,
+                    "delete": true
+                }
+            }, {
+                "name": "email",
+                "permissions": {
+                    "view": true,
+                    "update": true
+                }
+            }]
+        }, {
+            "key": "ca3fbfc6-1ade-47a6-945b-3d1ffae11b5d",
+            "name": "Employee List",
+            "mode": {
+                "visible": true
+            },
+            "items": [{
+                "name": "employee",
+                "permissions": {
+                    "view": true,
+                    "delete": true
+                }
+            }, {
+                "name": "email",
+                "permissions": {
+                    "view": true,
+                    "update": true
+                }
+            }]
+        },
+        {
+            "key": "c6519eec-af1e-4d96-8776-ce776037d4ae",
+            "name": "Add Employee",
+            "mode": {
+                "visible": true
+            },
+            "items": [{
+                "name": "employee",
+                "permissions": {
+                    "view": true,
+                    "create": true
+                }
+            }, {
+                "name": "email",
+                "permissions": {
+                    "view": true,
+                    "update": true
+                }
+            }]
+        }
+    ],
+    "theme": "bsi-theme2"
+}]

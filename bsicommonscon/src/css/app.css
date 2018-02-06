@@ -1,0 +1,103 @@
+html, body { height: 100%; }
+
+.container-fluid {
+	min-height: 100%;
+	overflow: hidden;
+}
+
+#sidebar {
+	margin-bottom: -9999px;
+  padding-bottom: 9999px;
+  padding-top: 65px; 
+  background-color: rgb(243, 245, 247);
+  /* padding-left: 0%;
+  padding-right: 0% */
+}
+
+.full-page-content {
+	margin-bottom: -9999px;
+  padding-bottom: 9999px;
+  padding-top: 65px;
+  background-color: white;
+}
+
+.app-branding {
+  background-image: url(./images/logo_FPO_c.png); 
+  left: 0;
+  top: 0;
+  height: 50px;
+  width: 265px;
+  background-size: auto 50px;
+  background-repeat: no-repeat;
+  margin: 0 5px !important;
+}
+
+.nav-border
+{
+  border-left: 1px solid #dedede;
+  
+}
+
+.navbar.no-padding 
+{
+  padding: 0px !important;
+}
+
+.navbar.separator
+{
+  border-bottom: 1px solid #32595f;
+  
+}
+
+.nav-item.pad-bottom-20px
+{
+  padding-bottom: 20px;
+}
+
+.pad-widget
+{
+  padding-bottom: 40px;
+  padding-top: 40px;  
+}
+
+.text-align-center
+{
+  text-align: center
+}
+
+.text-bsi
+{
+  color:#337ab7;
+}
+
+ #widgetView,#iconView 
+{
+  display: '';
+} 
+
+@media (max-width: 767.99px) {
+  .nav-expand-md   {   
+    display: none ;
+  }
+ 
+}
+
+@media (max-width: 767.99px) {
+  .show-nav-toggler   {   
+    display: "" ;   
+    padding-top: 65px; 
+  }
+ 
+}
+
+@media (min-width: 768px) {
+  .nav-expand-md   {   
+    display: "" ;
+  }
+}
+
+@media (min-width: 768px) {
+  .show-nav-toggler   {   
+    display: none ;
+  }
+}

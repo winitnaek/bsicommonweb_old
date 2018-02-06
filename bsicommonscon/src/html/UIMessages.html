@@ -1,0 +1,24 @@
+<script type="text/javascript">
+$('#mod_messages').modal({backdrop: 'static'});
+$('#mod_messages').on('shown.bs.modal', function (e) {
+    var  bell = "<span class=\"fa fa-bell-o\" data-toggle=\"tooltip\" title=\"Messages\" style=\"font-size: 2em; padding: 10px; color:#ffb81d;\"></span>";
+    $('#msg-modal-title').text('Messages');
+    $('#msg-modal-title').prepend(bell);
+    $('#msg-modal-body').text('');
+    for(var i=1;i<5;i++){
+        var msgTxt = "Message : "+i; 
+        var msg = " <div class=\"alert fade in\"> <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>"+msgTxt+"</div>";
+        $('#msg-modal-body').append(msg);
+    }   
+});
+</script>
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" id="msg-modal-title"></h4>
+    </div>
+    <div class="modal-body" id="msg-modal-body">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+</div>
